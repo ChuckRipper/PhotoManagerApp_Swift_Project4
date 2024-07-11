@@ -392,3 +392,17 @@ setUp() - Sets up the testing environment (override).
 tearDown() - Tears down the testing environment (override).
 testExample() - Example test method (public).
 **Description**: Contains shared tests that apply to both client and server modules.
+Client UI Tests
+ClientUITests.swift
+
+Methods:
+setUp() - Sets up the testing environment (override).
+tearDown() - Tears down the testing environment (override).
+testExample() - Example UI test method (public).
+**Description**: Contains UI tests for the client module.
+ClientUITestsLaunchTests.swift
+
+Methods:
+setUp() - Sets up the testing environment (override).
+testLaunch() - Tests the app launch functionality (public).
+**Description**: Contains launch tests for the client module.
