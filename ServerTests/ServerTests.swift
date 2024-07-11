@@ -74,13 +74,13 @@ final class ServerTests: XCTestCase {
     
     func testPhotoCreation() throws {
         //let photo = Photo(title: "Test Photo", url: "http://example.com/photo.jpg", albumID: UUID())
-        let photo = Photo(title: "Test Photo", url: "http://example.com/photo.jpg", albumId: UUID())
+        let photo = ServerPhoto(title: "Test Photo", url: "http://example.com/photo.jpg", albumId: UUID())
         
         try app.test(.POST, "/photos", beforeRequest: { req in
             try req.content.encode(photo)
         }, afterResponse: { res in
             XCTAssertEqual(res.status, .ok)
-            let returnedPhoto = try res.content.decode(Photo.self)
+            let returnedPhoto = try res.content.decode(ServerPhoto.self)
             XCTAssertEqual(returnedPhoto.title, "Test Photo")
             XCTAssertEqual(returnedPhoto.url, "http://example.com/photo.jpg")
         })

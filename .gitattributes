@@ -1,0 +1,192 @@
+# Końcówki linii i kodowanie
+* text=auto
+
+# Pliki C#
+*.cs eol=lf linguist-language=C#
+*.csproj text linguist-language=XML
+*.sln text linguist-language=XML
+
+# Pliki Python
+*.py eol=lf linguist-language=Python
+*.pyc binary
+*.pyo binary
+
+# Pliki PHP
+*.php eol=lf linguist-language=PHP
+*.phtml eol=lf linguist-language=PHP
+*.phar binary
+
+# Pliki Swift
+*.swift eol=lf linguist-language=Swift
+*.xcodeproj text linguist-language=XML
+
+# Pliki C
+*.c eol=lf linguist-language=C
+*.h eol=lf linguist-language=C
+*.o binary
+
+# Pliki JavaScript
+*.js eol=lf linguist-language=JavaScript
+*.jsx eol=lf linguist-language=JavaScript
+*.ts eol=lf linguist-language=TypeScript
+*.tsx eol=lf linguist-language=TypeScript
+*.map text
+
+# Pliki konfiguracyjne
+*.json text linguist-language=JSON
+*.xml text linguist-language=XML
+*.yml text linguist-language=YAML
+*.yaml text linguist-language=YAML
+
+# Pliki binarne (zdjęcia, multimedia, kompilaty)
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.svg binary
+*.mp3 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.wav binary
+*.zip binary
+*.tar.gz binary
+*.rar binary
+*.exe binary
+*.dll binary
+*.dmg binary
+*.app binary
+
+# Ignorowanie zmian w uprawnieniach
+*.sh -delta
+*.cmd -delta
+*.ps1 -delta
+
+# Pliki LaTeX
+*.tex diff=tex
+*.cls diff=tex
+*.sty diff=tex
+
+# Wyłączanie automatycznego śledzenia niektórych atrybutów
+*.log export-ignore
+*.tmp export-ignore
+*.bak export-ignore
+
+# Pliki Shell i Bash
+*.sh eol=lf linguist-language=Shell
+*.bash eol=lf linguist-language=Shell
+*.zsh eol=lf linguist-language=Shell
+
+# Pliki Perl
+*.pl eol=lf linguist-language=Perl
+*.pm eol=lf linguist-language=Perl
+*.t eol=lf linguist-language=Perl
+
+# Pliki Ruby
+*.rb eol=lf linguist-language=Ruby
+*.erb eol=lf linguist-language=HTML
+*.gemspec eol=lf linguist-language=Ruby
+*.rake eol=lf linguist-language=Ruby
+
+# Pliki konfiguracyjne specyficzne dla Ruby
+Gemfile text linguist-language=Ruby
+Gemfile.lock text linguist-language=Ruby
+Rakefile text linguist-language=Ruby
+
+# Projekty OpenGL (w tym pliki 3D, obj, itp.)
+*.obj binary
+*.mtl text
+*.fbx binary
+*.dae text
+*.blend binary
+
+# Pliki OpenAL (pliki dźwiękowe WAV i MP3)
+*.wav binary
+*.mp3 binary
+
+# Pliki XML, YAML, JSON, XAML (WPF)
+*.xml text linguist-language=XML
+*.xaml text linguist-language=XML
+*.json text linguist-language=JSON
+*.yaml text linguist-language=YAML
+*.yml text linguist-language=YAML
+
+# Pliki multimedialne - grafika, audio i multimedia i różne ich rozszerzenia
+*.bmp binary
+*.tiff binary
+*.tif binary
+*.flac binary
+*.ogg binary
+*.webm binary
+
+# Pliki bazodanowe
+*.sql text linguist-language=SQL
+*.db binary
+*.sqlite binary
+tnsnames.ora text
+
+# Visual Studio Code
+.vscode/ text
+
+# Visual Studio 2022
+*.vcxproj text linguist-language=XML
+*.sln text linguist-language=XML
+*.vcxproj.filters text linguist-language=XML
+*.props text linguist-language=XML
+
+# Postgres / pgAdmin
+*.pgsql text linguist-language=SQL
+pg_hba.conf text linguist-language=INI
+postgresql.conf text linguist-language=INI
+
+# Inne pliki konfiguracyjne dla klientów oraz serwerów bazodanowych
+*.cnf text linguist-language=INI
+*.ini text linguist-language=INI
+
+# Pliki skryptów Windows (Batch i PowerShell)
+*.bat eol=crlf linguist-language=Batchfile
+*.cmd eol=crlf linguist-language=Batchfile
+*.ps1 eol=crlf linguist-language=PowerShell
+
+# Atrybuty plików programistycznych powiązanych z technologiami
+# Java
+*.java eol=lf linguist-language=Java
+*.class binary
+
+# HTML/CSS
+*.html eol=lf linguist-language=HTML
+*.css eol=lf linguist-language=CSS
+
+# TypeScript
+*.ts eol=lf linguist-language=TypeScript
+*.tsx eol=lf linguist-language=TypeScript
+
+# JSON
+*.json eol=lf linguist-language=JSON
+
+# YAML
+*.yml eol=lf linguist-language=YAML
+*.yaml eol=lf linguist-language=YAML
+
+# Markdown
+*.md eol=lf linguist-language=Markdown
+
+# Protobuf
+*.proto eol=lf linguist-language=Protocol Buffer
+
+# Docker
+Dockerfile eol=lf linguist-language=Dockerfile
+*.dockerignore eol=lf linguist-language=Ignore List
+
+# Kubernetes
+*.yaml eol=lf linguist-language=YAML
+*.yml eol=lf linguist-language=YAML
+
+# Go
+*.go eol=lf linguist-language=Go
+
+# Rust
+*.rs eol=lf linguist-language=Rust
+
+# Scala
+*.scala eol=lf linguist-language=Scala
