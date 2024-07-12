@@ -5,21 +5,6 @@
 //  Created by user263923 on 7/9/24.
 //
 
-//import SwiftUI
-//
-//struct CommentView: View {
-//    var body: some View {
-//        Text("Comments")
-//            .navigationBarTitle("Comments")
-//    }
-//}
-//
-//struct CommentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CommentView()
-//    }
-//}
-
 import SwiftUI
 
 struct CommentListView: View {

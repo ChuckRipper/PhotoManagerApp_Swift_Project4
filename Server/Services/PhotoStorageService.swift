@@ -9,10 +9,6 @@ import Foundation
 import Vapor
 import Fluent
 
-//struct PhotoStorageService {
-//    // Implement photo storage methods
-//}
-
 final class PhotoStorageService {
     
     // Przechowywanie zdjęcia na serwerze

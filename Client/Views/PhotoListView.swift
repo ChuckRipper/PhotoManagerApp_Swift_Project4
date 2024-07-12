@@ -5,21 +5,6 @@
 //  Created by user263923 on 7/9/24.
 //
 
-//import SwiftUI
-//
-//struct PhotoListView: View {
-//    var body: some View {
-//        Text("Photo List")
-//            .navigationBarTitle("Photos")
-//    }
-//}
-//
-//struct PhotoListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PhotoListView()
-//    }
-//}
-
 import SwiftUI
 
 struct PhotoListView: View {

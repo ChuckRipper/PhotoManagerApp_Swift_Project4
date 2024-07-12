@@ -9,10 +9,6 @@ import Foundation
 import Vapor
 import Fluent
 
-//struct AuthService {
-//    // Implement authentication methods
-//}
-
 final class AuthService {
     
     // Rejestracja nowego użytkownika

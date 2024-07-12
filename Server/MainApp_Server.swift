@@ -28,7 +28,6 @@ struct MainApp_Server {
         
         // Uruchomienie aplikacji
         try app.run()
-        
     }
 
     private static func configure(_ app: Application) throws {
@@ -42,20 +41,7 @@ struct MainApp_Server {
         app.migrations.add(CreateComment())
         
         // Wykonanie migracji
-        try app.autoMigrate().wait()
-
-//        let userController = UserController()
-//        try app.register(collection: userController)
-//
-//        let photoController = PhotoController()
-//        try app.register(collection: photoController)
-//
-//        let commentController = CommentController()
-//        try app.register(collection: commentController)
-//
-//        let albumController = AlbumController()
-//        try app.register(collection: albumController)
-        
+        try app.autoMigrate().wait()        
     }
     
     private static func routes(_ app: Application) throws {
@@ -83,6 +69,4 @@ struct MainApp_Server {
             return try photoStorageService.fetchPhoto(req: req, photoID: photoID)
         }
     }
-    
-    
 }

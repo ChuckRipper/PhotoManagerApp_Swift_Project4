@@ -5,49 +5,6 @@
 //  Created by user263923 on 7/9/24.
 //
 
-//import SwiftUI
-//
-//struct ContentView: View {
-//    var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .padding()
-//    }
-//}
-//
-//#Preview {
-//    ContentView()
-//}
-
-//import SwiftUI
-//import CoreData
-//
-//struct ContentView: View {
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                NavigationLink(destination: LoginView()) {
-//                    Text("Login")
-//                }
-//                NavigationLink(destination: RegisterView()) {
-//                    Text("Register")
-//                }
-//            }
-//            .navigationBarTitle("Photo Manager")
-//        }
-//    }
-//}
-//
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
-
 import SwiftUI
 
 struct ContentView: View {

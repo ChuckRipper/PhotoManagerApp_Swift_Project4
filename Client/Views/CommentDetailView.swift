@@ -5,18 +5,6 @@
 //  Created by user263923 on 7/10/24.
 //
 
-//import SwiftUI
-//
-//struct CommentDetailView: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
-//
-//#Preview {
-//    CommentDetailView()
-//}
-
 import SwiftUI
 
 struct CommentDetailView: View {

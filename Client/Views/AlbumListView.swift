@@ -5,21 +5,6 @@
 //  Created by user263923 on 7/9/24.
 //
 
-//import SwiftUI
-//
-//struct AlbumListView: View {
-//    var body: some View {
-//        Text("Album List")
-//            .navigationBarTitle("Albums")
-//    }
-//}
-//
-//struct AlbumListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AlbumListView()
-//    }
-//}
-
 import SwiftUI
 
 struct AlbumListView: View {
