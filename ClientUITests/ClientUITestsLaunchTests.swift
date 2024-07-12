@@ -16,7 +16,16 @@ final class ClientUITestsLaunchTests: XCTestCase {
     }
     
     override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+    }
+
+    override func setUp() {
+        // Dodatkowe ustawienia przed każdym testem
+    }
+
+    override func tearDown() {
+        // Dodatkowe czynności po każdym teście
     }
     
     func testLaunch() throws {

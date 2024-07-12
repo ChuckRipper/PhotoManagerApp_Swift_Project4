@@ -75,7 +75,7 @@ class UserViewModel: ObservableObject {
                 }
             } receiveValue: { user in
                 self.user = user
-                self.fetchUsers() // refresh the list
+                self.fetchUsers() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -100,7 +100,7 @@ class UserViewModel: ObservableObject {
                 }
             } receiveValue: { user in
                 self.user = user
-                self.fetchUsers() // refresh the list
+                self.fetchUsers() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -121,7 +121,7 @@ class UserViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { _ in
-                self.fetchUsers() // refresh the list
+                self.fetchUsers() // odśwież listę
             }
             .store(in: &cancellables)
     }

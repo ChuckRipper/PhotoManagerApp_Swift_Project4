@@ -14,19 +14,27 @@ final class ClientTests: XCTestCase {
     var userViewModel: UserViewModel!
     var photoViewModel: PhotoViewModel!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         userViewModel = UserViewModel()
         photoViewModel = PhotoViewModel()
     }
     
-    override func tearDown() {
+    override func tearDownWithError() throws {
         userViewModel = nil
         photoViewModel = nil
-        super.tearDown()
+        try super.tearDownWithError()
+    }
+
+    override func setUp() {
+        // Dodatkowe ustawienia przed każdym testem
+    }
+
+    override func tearDown() {
+        // Dodatkowe czynności po każdym teście
     }
     
-    func testFetchUsers() {
+    func testFetchUsers() throws {
         let expectation = self.expectation(description: "Fetch Users")
         userViewModel.fetchUsers()
         
@@ -38,7 +46,7 @@ final class ClientTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testFetchPhotos() {
+    func testFetchPhotos() throws {
         let expectation = self.expectation(description: "Fetch Photos")
         photoViewModel.fetchPhotos()
         
@@ -48,5 +56,13 @@ final class ClientTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testUserViewModelInitialization() {
+        XCTAssertNotNil(userViewModel)
+    }
+
+    func testPhotoViewModelInitialization() {
+        XCTAssertNotNil(photoViewModel)
     }
 }

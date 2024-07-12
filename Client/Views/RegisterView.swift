@@ -27,7 +27,7 @@ struct RegisterView: View {
                 .padding()
             
             Button(action: {
-                // Perform register action
+                // Wywołanie funkcji register z klasy Auth
             }) {
                 Text("Register")
             }

@@ -11,11 +11,30 @@ import XCTest
 
 final class SharedTests: XCTestCase {
 
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        app = Application(.testing)
+        try configure(app)
+    }
+
+    override func tearDownWithError() throws {
+        app.shutdown()
+        try super.tearDownWithError()
+    }
+
+    override func setUp() {
+        // Dodatkowe ustawienia przed każdym testem
+    }
+
+    override func tearDown() {
+        // Dodatkowe czynności po każdym teście
+    }
+    
     func testUserFlow() throws {
            let app = XCUIApplication()
            app.launch()
 
-           // Register a new user
+           // Zarejestruj nowego użytkownika
            app.buttons["Register"].tap()
            let usernameField = app.textFields["Username"]
            let emailField = app.textFields["Email"]
@@ -45,4 +64,9 @@ final class SharedTests: XCTestCase {
            // Verify the user is logged in
            XCTAssertTrue(app.staticTexts["Welcome, testuser!"].exists)
        }
+    
+    func testExample() throws {
+        // Przykładowy test
+        XCTAssertTrue(true)
+    }
 }

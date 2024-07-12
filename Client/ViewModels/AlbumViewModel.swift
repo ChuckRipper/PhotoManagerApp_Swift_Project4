@@ -75,7 +75,7 @@ class AlbumViewModel: ObservableObject {
                 }
             } receiveValue: { album in
                 self.album = album
-                self.fetchAlbums() // refresh the list
+                self.fetchAlbums() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -100,7 +100,7 @@ class AlbumViewModel: ObservableObject {
                 }
             } receiveValue: { album in
                 self.album = album
-                self.fetchAlbums() // refresh the list
+                self.fetchAlbums() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -121,7 +121,7 @@ class AlbumViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { _ in
-                self.fetchAlbums() // refresh the list
+                self.fetchAlbums() // odśwież listę
             }
             .store(in: &cancellables)
     }

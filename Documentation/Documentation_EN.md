@@ -169,8 +169,8 @@ PhotoManagerApp_Swift_Project4/
 
 - **AlbumViewModel.swift**
   - **Methods**:
-    - _fetchAlbums()_
-    - _createAlbum()_
+    - _fetchAlbums()_ - Fetches all albums
+    - _createAlbum()_ - Creates a new album.
     - _updateAlbum()_
     - _deleteAlbum()_
   - **Properties**:
@@ -464,7 +464,12 @@ PhotoManagerApp_Swift_Project4/
 
 - **Methods**:
   - _prepare(on: Database)_ - creates the users table.
+    - Access: 
+    - Description: .
+
   - _revert(on: Database)_ - deletes the users table.
+    - Access: 
+    - Description: .
 
 - **Fields and Properties**: None
 
@@ -552,9 +557,9 @@ PhotoManagerApp_Swift_Project4/
 **ClientTests.swift**
 
 - **Methods**:
-  - _setUp()_ - Sets up the testing environment (override).
+  - _setUp()_ - Sets up the test environment before each test (override).
     - Access: public (override)
-    - Description: .
+    - Description: Sets up the test environment before each test.
 
   - _tearDown()_ - Tears down the testing environment (override).
     - Access: public (override)

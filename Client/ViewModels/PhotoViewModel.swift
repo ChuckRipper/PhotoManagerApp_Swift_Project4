@@ -75,7 +75,7 @@ class PhotoViewModel: ObservableObject {
                 }
             } receiveValue: { photo in
                 self.photo = photo
-                self.fetchPhotos() // refresh the list
+                self.fetchPhotos() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -100,7 +100,7 @@ class PhotoViewModel: ObservableObject {
                 }
             } receiveValue: { photo in
                 self.photo = photo
-                self.fetchPhotos() // refresh the list
+                self.fetchPhotos() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -121,7 +121,7 @@ class PhotoViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { _ in
-                self.fetchPhotos() // refresh the list
+                self.fetchPhotos() // odśwież listę
             }
             .store(in: &cancellables)
     }

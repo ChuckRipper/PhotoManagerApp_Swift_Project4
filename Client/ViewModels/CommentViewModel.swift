@@ -75,7 +75,7 @@ class CommentViewModel: ObservableObject {
                 }
             } receiveValue: { comment in
                 self.comment = comment
-                self.fetchComments() // refresh the list
+                self.fetchComments() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -100,7 +100,7 @@ class CommentViewModel: ObservableObject {
                 }
             } receiveValue: { comment in
                 self.comment = comment
-                self.fetchComments() // refresh the list
+                self.fetchComments() // odśwież listę
             }
             .store(in: &cancellables)
     }
@@ -121,7 +121,7 @@ class CommentViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { _ in
-                self.fetchComments() // refresh the list
+                self.fetchComments() // odśwież listę
             }
             .store(in: &cancellables)
     }

@@ -26,6 +26,14 @@ final class ServerTests: XCTestCase {
         app.shutdown()
         try super.tearDownWithError()
     }
+
+    override func setUp() {
+        // Dodatkowe ustawienia przed każdym testem
+    }
+
+    override func tearDown() {
+        // Dodatkowe czynności po każdym teście
+    }
     
     func configure(_ app: Application) throws {
         app.databases.use(.sqlite(.memory), as: .sqlite)
@@ -60,6 +68,12 @@ final class ServerTests: XCTestCase {
             let returnedPhoto = try res.content.decode(ServerPhoto.self)
             XCTAssertEqual(returnedPhoto.title, "Test Photo")
             XCTAssertEqual(returnedPhoto.url, "http://example.com/photo.jpg")
+        })
+    }
+
+    func testHealthCheck() throws {
+        try app.test(.GET, "/health", afterResponse: { res in
+            XCTAssertEqual(res.status, .ok)
         })
     }
 }

@@ -11,19 +11,6 @@ struct AlbumDetailView: View {
     @ObservedObject var albumViewModel = AlbumViewModel()
     var album: Album
     
-//    var body: some View {
-//        VStack {
-//            TextField("Title", text: $albumViewModel.album?.title ?? "")
-//            
-//            Button("Update Album") {
-//                albumViewModel.updateAlbum(album)
-//            }
-//        }
-//        .onAppear {
-//            albumViewModel.fetchAlbum(id: album.id!)
-//        }
-//    }
-    
     var body: some View {
             VStack {
                 TextField("Title", text: Binding(

@@ -31,7 +31,7 @@ struct MainApp_Server {
     }
 
     private static func configure(_ app: Application) throws {
-        // Konfiguracja po¬åczenia z bazå danych
+        // Konfiguracja połączenia z bazą danych
         app.databases.use(.sqlite(.file("db.sqlite")), as: .sqlite)
         
         // Migracje
