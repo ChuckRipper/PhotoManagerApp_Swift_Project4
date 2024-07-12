@@ -7,6 +7,8 @@
 
 import XCTest
 
+@testable import PhotoManagerApp_Swift_Project4
+
 final class ClientUITests: XCTestCase {
 
 //    override func setUpWithError() throws {
