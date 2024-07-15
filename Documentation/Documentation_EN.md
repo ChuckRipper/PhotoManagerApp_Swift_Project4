@@ -1,5 +1,8 @@
 # PhotoManagerApp Documentation
 
+## Authors
+Cezary Kalinowski, 136168
+
 ## Table of Contents
 
 1. [Project Overview](#project-overview)
@@ -169,20 +172,34 @@ PhotoManagerApp_Swift_Project4/
 
 - **AlbumViewModel.swift**
   - **Methods**:
-    - _fetchAlbums()_ - Fetches all albums
-      - Access: 
-      - Description: .
-    - _createAlbum()_ - Creates a new album.
-      - Access: 
-      - Description: .    
-    - _updateAlbum()_
-      - Access: 
-      - Description: .
-    - _deleteAlbum()_
-      - Access: 
-      - Description: .
+    - _fetchAlbums()_
+      - Access: default (public)
+      - Description: Fetches all albums from the server and updates the albums property. In case of failure, it sets the errorMessage property with the error description.
+    - _fetchAlbum(id: UUID)_
+      - Access: default (public)
+      - Description: Fetches a single album by its ID from the server and updates the album property. In case of failure, it sets the errorMessage property with the error description.
+    - _createAlbum(album: Album)_
+      - Access: default (public)
+      - Description: Sends a POST request to the server to create a new album. Updates the album property with the created album and refreshes the album list by calling fetchAlbums(). In case of failure, it sets the errorMessage property with the error description.
+    - _updateAlbum(album: Album)_
+      - Access: default (public)
+      - Description: Sends a PUT request to the server to update an existing album. Updates the album property with the updated album and refreshes the album list by calling fetchAlbums(). In case of failure, it sets the errorMessage property with the error description.
+    - _deleteAlbum(id: UUID)_
+      - Access: default (public)
+      - Description: Sends a DELETE request to the server to delete an album by its ID. Refreshes the album list by calling fetchAlbums(). In case of failure, it sets the errorMessage property with the error description.
   - **Properties**:
-    - albums (Published<[Album]>)
+    - albums
+      - Access: @Published
+      - Description: Holds the list of albums fetched from the server.
+    - album
+      - Access: @Published
+      - Description: Holds a single album fetched or created.
+    - errorMessage
+      - Access: @Published
+      - Description: Holds the error message if any of the operations fail.
+    - cancellables
+      - Access: private
+      - Description: Holds the cancellable tasks for Combine publishers.
   - **Description**: Manages the state and logic for album-related views.
 
 - **UserViewModel.swift**
@@ -200,7 +217,18 @@ PhotoManagerApp_Swift_Project4/
       - Access: 
       - Description: .
   - **Properties**:
-    - users (Published<[User]>)
+    - albums
+      - Access: @Published
+      - Description: Holds the list of albums fetched from the server.
+    - album
+      - Access: @Published
+      - Description: Holds a single album fetched or created.
+    - errorMessage
+      - Access: @Published
+      - Description: Holds the error message if any of the operations fail.
+    - cancellables
+      - Access: private
+      - Description: Holds the cancellable tasks for Combine publishers.
   - **Description**: Manages the state and logic for user-related views.
 
 - **CommentViewModel.swift**
