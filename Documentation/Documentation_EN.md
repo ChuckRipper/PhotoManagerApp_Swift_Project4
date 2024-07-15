@@ -170,9 +170,17 @@ PhotoManagerApp_Swift_Project4/
 - **AlbumViewModel.swift**
   - **Methods**:
     - _fetchAlbums()_ - Fetches all albums
+      - Access: 
+      - Description: .
     - _createAlbum()_ - Creates a new album.
+      - Access: 
+      - Description: .    
     - _updateAlbum()_
+      - Access: 
+      - Description: .
     - _deleteAlbum()_
+      - Access: 
+      - Description: .
   - **Properties**:
     - albums (Published<[Album]>)
   - **Description**: Manages the state and logic for album-related views.
@@ -180,9 +188,17 @@ PhotoManagerApp_Swift_Project4/
 - **UserViewModel.swift**
   - **Methods**:
     - _fetchUsers()_
+      - Access: 
+      - Description: .
     - _createUser()_
+      - Access: 
+      - Description: .
     - _updateUser()_
+      - Access: 
+      - Description: .
     - _deleteUser()_
+      - Access: 
+      - Description: .
   - **Properties**:
     - users (Published<[User]>)
   - **Description**: Manages the state and logic for user-related views.
@@ -190,9 +206,17 @@ PhotoManagerApp_Swift_Project4/
 - **CommentViewModel.swift**
   - **Methods**:
     - _fetchComments()_
+      - Access: 
+      - Description: .
     - _createComment()_
+      - Access: 
+      - Description: .
     - _updateComment()_
+      - Access: 
+      - Description: .
     - _deleteComment()_
+      - Access: 
+      - Description: .
   - **Properties**:
     - comments (Published<[Comment]>)
   - **Description**: Manages the state and logic for comment-related views.
@@ -200,9 +224,17 @@ PhotoManagerApp_Swift_Project4/
 - **PhotoViewModel.swift**
   - **Methods**:
     - _fetchPhotos()_
+      - Access: 
+      - Description: .
     - _createPhoto()_
+      - Access: 
+      - Description: .
     - _updatePhoto()_
+      - Access: 
+      - Description: .
     - _deletePhoto()_
+      - Access: 
+      - Description: .
   - **Properties**:
     - photos (Published<[Photo]>)
   - **Description**: Manages the state and logic for photo-related views.
