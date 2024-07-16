@@ -205,24 +205,27 @@ PhotoManagerApp_Swift_Project4/
 - **UserViewModel.swift**
   - **Methods**:
     - _fetchUsers()_
-      - Access: 
-      - Description: .
-    - _createUser()_
-      - Access: 
-      - Description: .
-    - _updateUser()_
-      - Access: 
-      - Description: .
-    - _deleteUser()_
-      - Access: 
-      - Description: .
+      - Access: default (public)
+      - Description: Fetches all users from the server and updates the users property. In case of failure, it sets the errorMessage property with the error description.
+    - _fetchUser(id: UUID)_
+      - Access: default (public)
+      - Description: Fetches a single user by its ID from the server and updates the user property. In case of failure, it sets the errorMessage property with the error description.
+    - _createUser(user: User)_
+      - Access: default (public)
+      - Description: Sends a POST request to the server to create a new user. Updates the user property with the created user and refreshes the user list by calling fetchUsers(). In case of failure, it sets the errorMessage property with the error description.
+    - _updateUser(user: User)_
+      - Access: default (public)
+      - Description: Sends a PUT request to the server to update an existing user. Updates the user property with the updated user and refreshes the user list by calling fetchUsers(). In case of failure, it sets the errorMessage property with the error description.
+    - _deleteUser(id: UUID)_
+      - Access: default (public)
+      - Description: Sends a DELETE request to the server to delete a user by its ID. Refreshes the user list by calling fetchUsers(). In case of failure, it sets the errorMessage property with the error description.
   - **Properties**:
-    - albums
+    - users
       - Access: @Published
-      - Description: Holds the list of albums fetched from the server.
-    - album
+      - Description: Holds the list of users fetched from the server.
+    - user
       - Access: @Published
-      - Description: Holds a single album fetched or created.
+      - Description: Holds a single user fetched or created.
     - errorMessage
       - Access: @Published
       - Description: Holds the error message if any of the operations fail.
@@ -234,37 +237,66 @@ PhotoManagerApp_Swift_Project4/
 - **CommentViewModel.swift**
   - **Methods**:
     - _fetchComments()_
-      - Access: 
-      - Description: .
-    - _createComment()_
-      - Access: 
-      - Description: .
-    - _updateComment()_
-      - Access: 
-      - Description: .
-    - _deleteComment()_
-      - Access: 
-      - Description: .
+      - Access: default (public)
+      - Description: Fetches all comments from the server and updates the comments property. In case of failure, it sets the errorMessage property with the error description.
+    - _fetchComment(id: UUID)_
+      - Access: default (public)
+      - Description: Fetches a single comment by its ID from the server and updates the comment property. In case of failure, it sets the errorMessage property with the error description.
+    - _createComment(comment: Comment)_
+      - Access: default (public)
+      - Description: Sends a POST request to the server to create a new comment. Updates the comment property with the created comment and refreshes the comment list by calling fetchComments(). In case of failure, it sets the errorMessage property with the error description.
+    - _updateComment(comment: Comment)_
+      - Access: default (public)
+      - Description: Sends a PUT request to the server to update an existing comment. Updates the comment property with the updated comment and refreshes the comment list by calling fetchComments(). In case of failure, it sets the errorMessage property with the error description.
+    - _deleteComment(id: UUID)_
+      - Access: default (public)
+      - Description: Sends a DELETE request to the server to delete a comment by its ID. Refreshes the comment list by calling fetchComments(). In case of failure, it sets the errorMessage property with the error description.
   - **Properties**:
-    - comments (Published<[Comment]>)
+    - comments
+      - Access: @Published
+      - Description: Holds the list of comments fetched from the server.
+    - comment
+      - Access: @Published
+      - Description: Holds a single comment fetched or created.
+    - errorMessage
+      - Access: @Published
+      - Description: Holds the error message if any of the operations fail.
+    - cancellables
+      - Access: private
+      - Description: Holds the cancellable tasks for Combine publishers.
   - **Description**: Manages the state and logic for comment-related views.
 
 - **PhotoViewModel.swift**
   - **Methods**:
     - _fetchPhotos()_
-      - Access: 
-      - Description: .
-    - _createPhoto()_
-      - Access: 
-      - Description: .
-    - _updatePhoto()_
-      - Access: 
-      - Description: .
-    - _deletePhoto()_
-      - Access: 
-      - Description: .
+      - Access: default (public)
+      - Description: Fetches all photos from the server and updates the photos property. In case of failure, it sets the errorMessage property with the error description.
+    - _fetchPhoto(id: UUID)_
+      - Access: default (public)
+      - Description: Fetches a single photo by its ID from the server and updates the photo property. In case of failure, it sets the errorMessage property with the error description.
+    - _createPhoto(photo: Photo)_
+      - Access: default (public)
+      - Description: Sends a POST request to the server to create a new photo. Updates the photo property with the created photo and refreshes the photo list by calling fetchPhotos(). In case of failure, it sets the errorMessage property with the error description.
+    - _updatePhoto(photo: Photo)_
+      - Access: default (public)
+      - Description: Sends a PUT request to the server to update an existing photo. Updates the photo property with the updated photo and refreshes the photo list by calling fetchPhotos(). In case of failure, it sets the errorMessage property with the error description.
+    - _deletePhoto(id: UUID)_
+      - Access: default (public)
+      - Description: Sends a DELETE request to the server to delete a photo by its ID. Refreshes the photo list by calling fetchPhotos(). In case of failure, it sets the errorMessage property with the error description.
+
   - **Properties**:
-    - photos (Published<[Photo]>)
+    - photos
+      - Access: @Published
+      - Description: Holds the list of photos fetched from the server.
+    - photo
+      - Access: @Published
+      - Description: Holds a single photo fetched or created.
+    - errorMessage
+      - Access: @Published
+      - Description: Holds the error message if any of the operations fail.
+    - cancellables
+      - Access: private
+      - Description: Holds the cancellable tasks for Combine publishers.
   - **Description**: Manages the state and logic for photo-related views.
 
 ### Views (Client)
@@ -368,38 +400,38 @@ PhotoManagerApp_Swift_Project4/
 - **Methods**:
   - _boot(routes: RoutesBuilder)_
     - **HTTP method**: None
-    - **Access**: public
-    - **Description**: Registers routes for user-related actions.
+    - **Access**: default (public)
+    - **Description**: Sets up the routes for user-related operations. It groups the routes under the /users path and assigns appropriate HTTP methods and endpoints to the controller methods.
 
   - _login(req: Request)_
     - **HTTP method**: POST
-    - **Access**: public
-    - **Description**: Authenticates a user.
+    - **Access**: default (public)
+    - **Description**: Authenticates the user by checking the provided credentials against the stored user data. Returns the authenticated user if successful.
 
   - _register(req: Request)_
     - **HTTP method**: POST
-    - **Access**: public
-    - **Description**: Registers a new user.
+    - **Access**: default (public)
+    - **Description**: Registers a new user by hashing the password and saving the user data to the database. Returns the created user.
 
   - _getAllUsers(req: Request)_
     - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches all users.
+    - **Access**: default (public)
+    - **Description**: Fetches all users from the database and returns them.
 
   - _getUser(req: Request)_
     - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches all users.
+    - **Access**: default (public)
+    - **Description**: Fetches a single user by its ID from the database and returns it. If the user is not found, it returns a notFound error.
 
   - _updateUser(req: Request)_
     - **HTTP method**: PUT
-    - **Access**: public
-    - **Description**: Updates a specific user's details.
+    - **Access**: default (public)
+    - **Description**: Updates an existing user with the provided data. It fetches the user by ID, updates the relevant fields, and saves the changes. Returns the updated user.
 
   - _deleteUser(req: Request)_
     - **HTTP method**: DELETE
-    - **Access**: public
-    - **Description**: Deletes a specific user.
+    - **Access**: default (public)
+    - **Description**: Deletes a user by its ID from the database. If the user is found and successfully deleted, it returns an ok status.
 
 - **Fields and Properties**: None
 
@@ -410,33 +442,33 @@ PhotoManagerApp_Swift_Project4/
 - **Methods**:
   - _boot(routes: RoutesBuilder)_
     - **HTTP method**: None
-    - **Access**: public
-    - **Description**: Registers routes for photo-related actions.
+    - **Access**: default (public)
+    - **Description**: Sets up the routes for photo-related operations. It groups the routes under the /photos path and assigns appropriate HTTP methods and endpoints to the controller methods.
 
-  - _create(req: Request)_
+  - _getAllHandler(req: Request)_
+    - **HTTP method**: GET
+    - **Access**: default (public)
+    - **Description**: Fetches all photos from the database and returns them.
+
+  - _createHandler(req: Request)_
     - **HTTP method**: POST
-    - **Access**: public
-    - **Description**: Creates a new photo.
+    - **Access**: default (public)
+    - **Description**: Creates a new photo with the provided data and saves it to the database. Returns the created photo.
 
-  - _getAll(req: Request)_
+  - _getHandler(req: Request)_
     - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches all photos.
+    - **Access**: default (public)
+    - **Description**:  Fetches a single photo by its ID from the database and returns it. If the photo is not found, it returns a notFound error.
 
-  - _get(req: Request)_
-    - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches a specific photo by ID.
-
-  - _update(req: Request)_
+  - _updateHandler(req: Request)_
     - **HTTP method**: PUT
-    - **Access**: public
-    - **Description**: Updates a specific photo's details.
+    - **Access**: default (public)
+    - **Description**: Updates an existing photo with the provided data. It fetches the photo by ID, updates the relevant fields, and saves the changes. Returns the updated photo.
 
-  - _delete(req: Request)_
+  - _deleteHandler(req: Request)_
     - **HTTP method**: DELETE
-    - **Access**: public
-    - **Description**: Deletes a specific photo.
+    - **Access**: default (public)
+    - **Description**: Deletes a photo by its ID from the database. If the photo is found and successfully deleted, it returns an ok status.
 
 - **Fields and Properties**: None
 
@@ -447,33 +479,33 @@ PhotoManagerApp_Swift_Project4/
 - **Methods**:
   - _boot(routes: RoutesBuilder)_ - Registers routes for comment-related actions (public).
     - **HTTP method**: None
-    - **Access**: public
-    - **Description**: Registers routes for comment-related actions.
+    - **Access**: default (public)
+    - **Description**: Sets up the routes for comment-related operations. It groups the routes under the /comments path and assigns appropriate HTTP methods and endpoints to the controller methods.
 
-  - _create(req: Request)_
+  - _getAllHandler(req: Request)_
+    - **HTTP method**: GET
+    - **Access**: default (public)
+    - **Description**: Fetches all comments from the database and returns them.
+
+  - _createHandler(req: Request)_
     - **HTTP method**: POST
-    - **Access**: public
-    - **Description**: Creates a new comment.
+    - **Access**: default (public)
+    - **Description**: Creates a new comment with the provided data and saves it to the database. Returns the created comment.
 
-  - _getAll(req: Request)_
+  - _getHandler(req: Request)_
     - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches all comments.
+    - **Access**: default (public)
+    - **Description**: Fetches a single comment by its ID from the database and returns it. If the comment is not found, it returns a notFound error.
 
-  - _get(req: Request)_
-    - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches a specific comment by ID .
-
-  - _update(req: Request)_
+  - _updateHandler(req: Request)_
     - **HTTP method**: PUT
-    - **Access**: public
-    - **Description**: Updates a specific comment's details.
+    - **Access**: default (public)
+    - **Description**: Updates an existing comment with the provided data. It fetches the comment by ID, updates the relevant fields, and saves the changes. Returns the updated comment.
 
-  - _delete(req: Request)_
+  - _deleteHandler(req: Request)_
     - **HTTP method**: DELETE
-    - **Access**: public
-    - **Description**: Deletes a specific comment.
+    - **Access**: default (public)
+    - **Description**: Deletes a comment by its ID from the database. If the comment is found and successfully deleted, it returns an ok status.
 
 - **Fields and Properties**: None
 
@@ -482,35 +514,35 @@ PhotoManagerApp_Swift_Project4/
 **AlbumController_Server.swift**
 
 - **Methods**:
-  - _boot(routes: RoutesBuilder)_
+  - _boot(routes: RoutesBuilder)_ - Registers routes for comment-related actions (public).
     - **HTTP method**: None
-    - **Access**: public
-    - **Description**: Registers routes for album-related actions.
+    - **Access**: default (public)
+    - **Description**: Sets up the routes for album-related operations. It groups the routes under the /albums path and assigns appropriate HTTP methods and endpoints to the controller methods.
 
-  - _create(req: Request)_
+  - _getAllHandler(req: Request)_
+    - **HTTP method**: GET
+    - **Access**: default (public)
+    - **Description**: Fetches all albums from the database and returns them.
+
+  - _createHandler(req: Request)_
     - **HTTP method**: POST
-    - **Access**: public
-    - **Description**: Creates a new album.
+    - **Access**: default (public)
+    - **Description**: Creates a new album with the provided data and saves it to the database. Returns the created album.
 
-  - _getAll(req: Request)_
+  - _getHandler(req: Request)_
     - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches all albums.
+    - **Access**: default (public)
+    - **Description**: Fetches a single album by its ID from the database and returns it. If the album is not found, it returns a notFound error.
 
-  - _get(req: Request)_
-    - **HTTP method**: GET
-    - **Access**: public
-    - **Description**: Fetches a specific album by ID.
-
-  - _update(req: Request)_
+  - _updateHandler(req: Request)_
     - **HTTP method**: PUT
-    - **Access**: public
-    - **Description**: Updates a specific album's details.
+    - **Access**: default (public)
+    - **Description**: Updates an existing album with the provided data. It fetches the album by ID, updates the relevant fields, and saves the changes. Returns the updated album.
 
-  - _delete(req: Request)_
+  - _deleteHandler(req: Request)_
     - **HTTP method**: DELETE
-    - **Access**: public
-    - **Description**: Deletes a specific album.
+    - **Access**: default (public)
+    - **Description**: Deletes an album by its ID from the database. If the album is found and successfully deleted, it returns an ok status.
 
 - **Fields and Properties**: None
 
@@ -523,13 +555,18 @@ PhotoManagerApp_Swift_Project4/
 **Class**: _CreateUser_
 
 - **Methods**:
-  - _prepare(on: Database)_ - creates the users table.
-    - Access: 
-    - Description: .
+  - _prepare(on: Database)_
+    - Access: default (public)
+    - Columns:
+      - id: A unique identifier for each user.
+      - username: A string representing the username of the user. This field is required.
+      - email: A string representing the email of the user. This field is required.
+      - password: A string representing the hashed password of the user. This field is required.
+    - Description: This method sets up the schema for the users table. It defines the columns and their types, including an ID, username, email, and password.
 
   - _revert(on: Database)_ - deletes the users table.
-    - Access: 
-    - Description: .
+    - Access: default (public)
+    - Description: This method deletes the users table schema from the database. It is used to rollback the changes made by the prepare method.
 
 - **Fields and Properties**: None
 
@@ -540,8 +577,17 @@ PhotoManagerApp_Swift_Project4/
 **Class**: _CreateAlbum_
 
 - **Methods**:
-  - _prepare(on: Database)_ - creates the albums table.
-  - _revert(on: Database)_ - deletes the albums table.
+  - _prepare(on: Database)_
+    - Access: default (public)
+    - Columns:
+      - id: A unique identifier for each album.
+      - title: A string representing the title of the album. This field is required.
+      - user_id: A UUID that references the id column in the users table. This field is required and establishes a foreign key relationship.
+    - Description: This method sets up the schema for the albums table. It defines the columns and their types, including an ID, title, and a foreign key to the users table.
+
+  - _revert(on: Database)_ - deletes the users table.
+    - Access: default (public)
+    - Description: This method deletes the albums table schema from the database. It is used to rollback the changes made by the prepare method.
 
 - **Fields and Properties**: None
 
@@ -552,8 +598,18 @@ PhotoManagerApp_Swift_Project4/
 **Class**: _CreateComment_
 
 - **Methods**:
-  - _prepare(on: Database)_ - creates the comments table.
-  - _revert(on: Database)_ - deletes the comments table.
+  - _prepare(on: Database)_
+    - Access: default (public)
+    - Columns:
+      - id: A unique identifier for each comment.
+      - text: A string representing the text of the comment. This field is required.
+      - photo_id: A UUID that references the id column in the photos table. This field is required and establishes a foreign key relationship.
+      - user_id: A UUID that references the id column in the users table. This field is required and establishes a foreign key relationship.
+    - Description: This method sets up the schema for the comments table. It defines the columns and their types, including an ID, text, and foreign keys to the photos and users tables.
+
+  - _revert(on: Database)_ - deletes the users table.
+    - Access: default (public)
+    - Description: This method deletes the comments table schema from the database. It is used to rollback the changes made by the prepare method.
 
 - **Fields and Properties**: None
 
@@ -562,9 +618,20 @@ PhotoManagerApp_Swift_Project4/
 **CreatePhoto.swift**
 
 **Class**: _CreatePhoto_
+
 - **Methods**:
-  - _prepare(on: Database)_ - creates the photos table.
-  - _revert(on: Database)_ - deletes the photos table.
+  - _prepare(on: Database)_
+    - Access: default (public)
+    - Columns:
+      - id: A unique identifier for each photo.
+      - title: A string representing the title of the photo. This field is required.
+      - url: A string representing the URL of the photo. This field is required.
+      - album_id: A UUID that references the id column in the albums table. This field is required and establishes a foreign key relationship.
+    - Description: This method sets up the schema for the photos table. It defines the columns and their types, including an ID, title, URL, and a foreign key to the albums table.
+
+  - _revert(on: Database)_ - deletes the users table.
+    - Access: default (public)
+    - Description: This method deletes the photos table schema from the database. It is used to rollback the changes made by the prepare method.
 
 - **Fields and Properties**: None
 
@@ -574,41 +641,61 @@ PhotoManagerApp_Swift_Project4/
 
 **AuthService.swift**
 
+**Class**: _AuthService_
+
 - **Methods**:
-  - _register(req: Request)_ - Registers a new user (public).
-  - _login(req: Request)_ - Authenticates a user (public).
+  - _register(req: Request)_
+    - Access: default (public)
+    - Description: This method registers a new user. It hashes the user's password using Bcrypt and saves the user in the database.
+
+  - _login(req: Request)_
+    - Access: default (public)
+    - Description: Fetches a single photo by its ID from the server and updates the photo property. In case of failure, it sets the errorMessage property with the error description.
 
 - **Fields and Properties**: None
 
-- **Description**: Provides authentication services including user registration and login.
+- **Description**: Provides authentication services for user registration and login. It handles the creation of new users with hashed passwords and authenticates existing users by verifying their credentials.
 
 **PhotoStorageService.swift**
 
 - **Methods**:
-  - _storePhoto(req: Request, photo: ServerPhoto)_ - Stores a photo on the server (public).
-  - _fetchPhoto(req: Request, photoID: UUID)_ - _fetches a photo from the server (public).
+  - _storePhoto(req: Request, photo: ServerPhoto)_
+    - Access: default (public)
+    - Description: This method stores a photo on the server. It writes the photo data to the server's disk and saves the photo information in the database.
+
+  - _fetchPhoto(req: Request, photoID: UUID)_
+    - Access: default (public)
+    - Description: This method retrieves a photo from the server. It reads the photo data from the server's disk and returns it in the response.
 
 - **Fields and Properties**: None
 
-- **Description**: Provides photo storage services including storing and fetching photos from the server.
+- **Description**: Provides services for storing and retrieving photos on the server. It handles the logic for saving photo files to the server's disk and retrieving them for client requests.
 
 ### MainApp_Server.swift
 
 **MainApp_Server.swift**
 
 - **Methods**:
-  - _main()_ - Entry point of the server application (private).
-  - _configure(_ app: Application)_ - Configures the database and performs migrations (private).
-  - _routes(_ app: Application)_ - Registers routes for the application (private).
+  - _main()_
+    - Access: private static
+    - Description: Main entry point of the server application. It detects the environment, sets up logging, initializes the application, configures the database, registers routes, and runs the application.
+
+  - _configure(app: Application)_
+    - Access: private static
+    - Description: Configures the database connection and migrations for the application.
+
+  - _routes(app: Application)_
+    - Access: private static
+    - Description: Registers the routes and services for the application.
     - **Routes**:
       - POST _/register_ - Registers a new user.
       - POST _/login_ - Authenticates a user.
-      - POST _/storePhoto_ - Stores a photo.
-      - GET _/fetchPhoto/:photoID_ - fetches a photo by ID.
+      - POST _/storePhoto_ - Stores a photo on the server.
+      - GET _/fetchPhoto/:photoID_ - Retrieves a photo from the server.
 
 - **Properties**: None
 
-- **Description**: Main entry point of the server application, handling configuration, migrations, and routing.
+- **Description**: Main entry point of the server-side part of the PhotoManagerApp_Swift_Project4 application. It sets up the application environment, configures the database, registers routes, and runs the application.
 
 ## Testing
 
@@ -617,98 +704,192 @@ PhotoManagerApp_Swift_Project4/
 **ClientTests.swift**
 
 - **Methods**:
-  - _setUp()_ - Sets up the test environment before each test (override).
+  - _setUpWithError()_
     - Access: public (override)
-    - Description: Sets up the test environment before each test.
+    - Description: Sets up the test environment before each test method in the class is called. Initializes userViewModel and photoViewModel.
 
-  - _tearDown()_ - Tears down the testing environment (override).
+  - _tearDownWithError()_
     - Access: public (override)
-    - Description: .
+    - Description: Cleans up the test environment after each test method in the class is called. Deinitializes userViewModel and photoViewModel.
 
-  - _testExample()_ - Example test method (public).
-    - Access: 
-    - Description: .
+  - _setUp()_
+    - Access: public (override)
+    - Description: Additional setup before each test method in the class is called.
 
-  - _testExample()_ - Example test method (public).
-    - Access: 
-    - Description: .
+  - _tearDown()_
+    - Access: public (override)
+    - Description: Additional cleanup after each test method in the class is called.
 
-**Description**: Contains unit tests for the client module.
+  - _testFetchUsers()_
+    - Access: default (public)
+    - Description: Tests the fetchUsers method of UserViewModel. Asserts that the users array is not empty after fetching users.
+
+  - _testFetchPhotos()_
+    - Access: default (public)
+    - Description: Tests the fetchPhotos method of PhotoViewModel. Asserts that the photos array is not empty after fetching photos.
+
+  - _testUserViewModelInitialization()_
+    - Access: default (public)
+    - Description: Tests the initialization of UserViewModel. Asserts that userViewModel is not nil.
+
+  - _testPhotoViewModelInitialization()_
+    - Access: default (public)
+    - Description: Tests the initialization of PhotoViewModel. Asserts that photoViewModel is not nil.
+
+- **Properties**:
+  - _userViewModel_:
+    - Access: default (public)
+    - Description: Instance of UserViewModel used for testing.
+
+  - _photoViewModel_:
+    - Access: default (public)
+    - Description: Instance of PhotoViewModel used for testing.
+
+- **Description**: Contains unit tests for the client-side view models of the PhotoManagerApp_Swift_Project4 application. It tests the functionality of UserViewModel and PhotoViewModel classes.
 
 ### Server Tests
 
 **ServerTests.swift**
 
 - **Methods**:
-  - _setUpWithError()_ - Sets up the testing environment (override).
-    - Access: 
-    - Description: .
+  - _setUpWithError()_
+    - Access: public (override)
+    - Description: Sets up the test environment before each test method in the class is called. Initializes the Application instance and configures it.
 
-  - _tearDownWithError()_ - Tears down the testing environment (override).
-    - Access: 
-    - Description: .
+  - _tearDownWithError()_
+    - Access: public (override)
+    - Description: Cleans up the test environment after each test method in the class is called. Shuts down the Application instance.
 
-  - _configure(_ app: Application)_ - Configures the application for testing (private).
-    - Access: 
-    - Description: .
+  - _setUp()_
+    - Access: public (override)
+    - Description: Additional setup before each test method in the class is called.
 
-  - _testUserCreation()_ - Tests user creation functionality (public).
-    - Access: 
-    - Description: .
+  - _tearDown()_
+    - Access: public (override)
+    - Description: Additional cleanup after each test method in the class is called.
 
-  - _testPhotoCreation()_ - Tests photo creation functionality (public).
-    - Access: 
-    - Description: .
+  - _configure(app: Application)_
+    - Access: default (internal)
+    - Description: Configures the Application instance with an in-memory SQLite database and runs migrations.
 
-**Description**: Contains unit tests for the server module.
+  - _testUserCreation()_
+    - Access: default (public)
+    - Description: Tests the user creation endpoint. Asserts that a user can be created successfully and the returned user data is correct.
+
+  - _testPhotoCreation()_
+    - Access: default (public)
+    - Description: Tests the photo creation endpoint. Asserts that a photo can be created successfully and the returned photo data is correct.
+
+  - _testHealthCheck()_
+    - Access: default (public)
+    - Description: Tests the health check endpoint. Asserts that the health check returns an OK status.
+
+- **Properties**:
+  - _app_:
+    - Access: default (public)
+    - Description: The Application instance used for testing.
+
+- **Description**: Contains unit tests for the server-side components of the PhotoManagerApp_Swift_Project4 application. It tests the functionality of various server-side operations such as user creation, photo creation, and health checks.
 
 ### Shared Tests
 
 **SharedTests.swift**
 
 - **Methods**:
-  - _setUp()_ - Sets up the testing environment (override).
-    - Access: 
-    - Description: .
+  - _setUpWithError()_
+    - Access: public (override)
+    - Description: Sets up the test environment before each test method in the class is called. Initializes the Application instance and configures it.
 
-  - tearDown() - Tears down the testing environment (override).
-    - Access: 
-    - Description: .
+  - _tearDownWithError()_
+    - Access: public (override)
+    - Description: Cleans up the test environment after each test method in the class is called. Shuts down the Application instance.
 
-  - testExample() - Example test method (public).
-    - Access: 
-    - Description: .
+  - _setUp()_
+    - Access: public (override)
+    - Description: Additional setup before each test method in the class is called.
 
-**Description**: Contains shared tests that apply to both client and server modules.
+  - _tearDown()_
+    - Access: public (override)
+    - Description: Additional cleanup after each test method in the class is called.
+
+  - _testUserFlow()_
+    - Access: default (public)
+    - Description: Tests the user registration and login flow. Ensures that a user can register, login, and be successfully authenticated.
+
+  - _testExample()_
+    - Access: default (public)
+    - Description: An example test method that verifies a simple true condition.
+
+- **Properties**:
+  - _app_:
+    - Access: default (public)
+    - Description: The Application instance used for testing.
+
+- **Description**: Contains unit tests for testing the overall functionality and flow of the PhotoManagerApp_Swift_Project4 application. This includes testing the user registration and login process.
 
 ### Client UI Tests
 
 **ClientUITests.swift**
 
 - **Methods**:
-  - setUp() - Sets up the testing environment (override).
-    - Access: 
-    - Description: .
+  - _setUpWithError()_
+    - Access: public (override)
+    - Description: Sets up the test environment before each test method in the class is called. It launches the XCUIApplication
 
-  - tearDown() - Tears down the testing environment (override).
-    - Access: 
-    - Description: .
+  - _tearDownWithError()_
+    - Access: public (override)
+    - Description: Cleans up the test environment after each test method in the class is called.
 
-  - testExample() - Example UI test method (public).
-    - Access: 
-    - Description: .
+  - _setUp()_
+    - Access: public (override)
+    - Description: Additional setup before each test method in the class is called.
 
-**Description**: Contains UI tests for the client module.
+  - _tearDown()_
+    - Access: public (override)
+    - Description: Additional cleanup after each test method in the class is called.
+
+  - _testExample()_
+    - Access: default (public)
+    - Description: Tests the functionality of the "Login" and "Register" buttons. It verifies that the corresponding screens are displayed when the buttons are tapped.
+
+  - _testLaunchPerformance()_
+    - Access: default (public)
+    - Description: Measures the application launch performance.
+
+- **Properties**:
+  - _app_:
+    - Access: default (public)
+    - Description: The XCUIApplication instance used for UI testing.
+
+- **Description**: Contains UI tests for the PhotoManagerApp_Swift_Project4 application. These tests verify the functionality of the user interface components, such as buttons and navigation.
 
 **ClientUITestsLaunchTests.swift**
 
 - **Methods**:
-  - setUp() - Sets up the testing environment (override).
-    - Access: 
-    - Description: .
+  - _runsForEachTargetApplicationUIConfiguration()_ (class var)
+    - Access: public (override)
+    - Description: Indicates that the test suite runs for each target application UI configuration.
 
-  - testLaunch() - Tests the app launch functionality (public).
-    - Access: 
-    - Description: .
+  - _setUpWithError()_
+    - Access: public (override)
+    - Description: Sets up the test environment before each test method in the class is called. It continues the test execution even if a failure occurs.
 
-**Description**: Contains launch tests for the client module.
+  - _setUp()_
+    - Access: public (override)
+    - Description: Additional setup before each test method in the class is called.
+
+  - _tearDown()_
+    - Access: public (override)
+    - Description: Additional cleanup after each test method in the class is called.
+
+  - _testLaunch()_
+    - Access: default (public)
+    - Description: Tests the application launch and captures a screenshot of the initial state. The screenshot is then attached to the test results with a specified name and lifetime.
+
+  - _testExample()_
+    - Access: default (public)
+    - Description: An example test method that verifies a simple true condition.
+
+- **Properties**: None
+
+- **Description**: Contains tests that verify the launch performance and initial screen of the PhotoManagerApp_Swift_Project4 application. These tests ensure that the application launches correctly and captures the initial state of the UI.
