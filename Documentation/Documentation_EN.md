@@ -117,6 +117,9 @@ PhotoManagerApp_Swift_Project4/
 ├── ClientUITests
 │   ├── ClientUITests.swift
 │   ├── ClientUITestsLaunchTests.swift
+├── Documentation
+│   ├── Documentation_EN.md
+│   ├── Documentation_PL.md
 ├── .gitignore
 ├── .gitattributes
 ├── LICENSE
