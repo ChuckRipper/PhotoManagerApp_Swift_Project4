@@ -52,9 +52,18 @@ PhotoManagerApp is a client-server application built with Swift and Vapor. The p
 ## Contributing
 
 1. Fork the repository.
-2. Create a new branch (git checkout -b feature-branch).
-3. Commit your changes (git commit -am 'Add new feature').
-4. Push to the branch (git push origin feature-branch).
+2. Create a new branch:
+    ```sh
+    git checkout -b feature-branch
+    ```
+3. Commit your changes:
+    ```sh
+    git commit -am 'New feature'
+    ```
+4. Push to the branch:
+    ```sh
+    git push origin feature-branch
+    ```
 5. Create a new Pull Request.
 
 ## License
