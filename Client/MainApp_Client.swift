@@ -17,3 +17,9 @@ struct MainApp_Client: SwiftUI.App {
         }
     }
 }
+
+struct MainApp_Client_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
